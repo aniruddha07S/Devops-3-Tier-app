@@ -48,7 +48,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.30.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: devops-${{ matrix.service }}:ci
           format: sarif
@@ -64,7 +64,7 @@ jobs:
           category: trivy-${{ matrix.service }}
 
       - name: Print Trivy summary (table)
-        uses: aquasecurity/trivy-action@0.30.0
+        uses: aquasecurity/trivy-action@v0.36.0
         if: always()
         with:
           image-ref: devops-${{ matrix.service }}:ci
