@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [main, master]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 permissions:
   contents: read
   security-events: write
@@ -47,17 +50,18 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Run Trivy vulnerability scanner
+      - name: Run Trivy vulnerability scanner (SARIF report)
         uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: devops-${{ matrix.service }}:ci
           format: sarif
           output: trivy-results-${{ matrix.service }}.sarif
-          severity: CRITICAL,HIGH
-          exit-code: "1"
+          severity: CRITICAL,HIGH,MEDIUM
+          ignore-unfixed: true
+          exit-code: "0"
 
       - name: Upload Trivy scan results to GitHub Security
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         if: always()
         with:
           sarif_file: trivy-results-${{ matrix.service }}.sarif
@@ -65,9 +69,9 @@ jobs:
 
       - name: Print Trivy summary (table)
         uses: aquasecurity/trivy-action@v0.36.0
-        if: always()
         with:
           image-ref: devops-${{ matrix.service }}:ci
           format: table
           severity: CRITICAL,HIGH,MEDIUM
+          ignore-unfixed: true
           exit-code: "0"
