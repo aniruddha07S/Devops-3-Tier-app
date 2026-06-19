@@ -17,7 +17,7 @@ Task manager built for learning DevOps: React frontend, Node.js API, MongoDB dat
 
 - Node.js 20+
 - Docker Desktop
-- Git
+- Git/Github
 
 ## Run locally (after installing Node + MongoDB)
 
