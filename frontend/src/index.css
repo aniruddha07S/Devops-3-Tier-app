@@ -6,58 +6,91 @@
 
 body {
   font-family: system-ui, -apple-system, sans-serif;
-  background: #0f172a;
+  background: linear-gradient(135deg, #020617 0%, #111827 100%);
   color: #e2e8f0;
   min-height: 100vh;
 }
 
 .app {
-  max-width: 560px;
+  max-width: 620px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
 
+.card {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 20px 45px rgba(2, 6, 23, 0.35);
+}
+
 header {
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 header h1 {
   font-size: 1.75rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.35rem;
 }
 
 header p {
   color: #94a3b8;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.stats div {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.stats strong {
+  display: block;
+  font-size: 1.15rem;
+  color: #f8fafc;
+}
+
+.stats span {
+  color: #94a3b8;
+  font-size: 0.8rem;
 }
 
 .task-form {
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .task-form input {
   flex: 1;
-  padding: 0.75rem 1rem;
+  padding: 0.8rem 1rem;
   border: 1px solid #334155;
-  border-radius: 8px;
-  background: #1e293b;
+  border-radius: 10px;
+  background: #0f172a;
   color: #e2e8f0;
   font-size: 1rem;
 }
 
 .task-form input:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #60a5fa;
 }
 
 .task-form button,
 .task-list button {
-  padding: 0.75rem 1rem;
+  padding: 0.8rem 1rem;
   border: none;
-  border-radius: 8px;
-  background: #3b82f6;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
   color: white;
   font-weight: 600;
   cursor: pointer;
@@ -65,7 +98,7 @@ header p {
 
 .task-form button:hover,
 .task-list button:hover {
-  background: #2563eb;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
 }
 
 .task-list {
@@ -76,10 +109,10 @@ header p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1rem;
+  padding: 0.8rem 0.9rem;
   background: #1e293b;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
+  border-radius: 12px;
+  margin-bottom: 0.6rem;
 }
 
 .task-list label {
@@ -97,7 +130,7 @@ header p {
 
 .task-list button {
   background: #ef4444;
-  padding: 0.4rem 0.75rem;
+  padding: 0.45rem 0.75rem;
   font-size: 0.85rem;
 }
 
@@ -107,11 +140,13 @@ header p {
 
 .error {
   color: #f87171;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
+.status,
 .empty {
-  color: #64748b;
+  color: #94a3b8;
   text-align: center;
-  padding: 2rem;
+  padding: 1rem 0;
 }
+
