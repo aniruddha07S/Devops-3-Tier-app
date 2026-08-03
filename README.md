@@ -1,6 +1,6 @@
 # DevOps 3-Tier App
 
-Task manager built for learning DevOps: React frontend, Node.js API, MongoDB database for learning purpose.
+Task manager built for learning DevOps and Kubernetes: React frontend, Node.js API, MongoDB database for learning purpose.
 
 ## Project structure
 
